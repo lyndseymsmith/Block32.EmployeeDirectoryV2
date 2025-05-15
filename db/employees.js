@@ -11,4 +11,27 @@ const employees = [
   { id: 10, name: "Gwen Grollmann" },
 ];
 
-export default employees;
+export function getEmployees() {
+  return employees;
+}
+
+export function getEmployee(id) {
+  const employee = employees.find((e) => e.id === +id);
+
+  if (!employee) {
+    return null;
+  }
+
+  return employee;
+}
+
+export function addEmployee(employee) {
+  const newEmployee = {
+    id: employees.length + 1,
+    name: employee.name,
+  };
+
+  employees.push(newEmployee);
+
+  return newEmployee;
+}
